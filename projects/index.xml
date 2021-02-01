@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on transcending ___</title>
+    <link>https://www.tran-scending.net/projects/</link>
+    <description>Recent content in Projects on transcending ___</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 24 Jan 2021 19:57:07 -0500</lastBuildDate><atom:link href="https://www.tran-scending.net/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kubeswitch</title>
+      <link>https://www.tran-scending.net/projects/kubeswitch/</link>
+      <pubDate>Sun, 24 Jan 2021 19:57:07 -0500</pubDate>
+      
+      <guid>https://www.tran-scending.net/projects/kubeswitch/</guid>
+      <description>Kubeswitch I wrote this tool about a year ago to help me interact with different Kubernetes clusters.</description>
+    </item>
+    
+  </channel>
+</rss>

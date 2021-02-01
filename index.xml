@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>transcending ___</title>
+    <link>https://www.tran-scending.net/</link>
+    <description>Recent content on transcending ___</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 24 Jan 2021 19:57:07 -0500</lastBuildDate><atom:link href="https://www.tran-scending.net/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Contact</title>
+      <link>https://www.tran-scending.net/contact/</link>
+      <pubDate>Sun, 24 Jan 2021 21:01:40 -0500</pubDate>
+      
+      <guid>https://www.tran-scending.net/contact/</guid>
+      <description>Chung Tran
+Charlotte, NC
+(704) 699-7781
+chung.k.tran@gmail.com
+https://www.linkedin.com/in/chung-tran-38118350/</description>
+    </item>
+    
+    <item>
+      <title>Profile</title>
+      <link>https://www.tran-scending.net/profile/</link>
+      <pubDate>Sun, 24 Jan 2021 20:10:25 -0500</pubDate>
+      
+      <guid>https://www.tran-scending.net/profile/</guid>
+      <description>Download Resume
+Summary I am a System Engineer with more than 15 years experience in programming, networking, and hosting in Linux and Windows environments.</description>
+    </item>
+    
+    <item>
+      <title>Kubeswitch</title>
+      <link>https://www.tran-scending.net/projects/kubeswitch/</link>
+      <pubDate>Sun, 24 Jan 2021 19:57:07 -0500</pubDate>
+      
+      <guid>https://www.tran-scending.net/projects/kubeswitch/</guid>
+      <description>Kubeswitch I wrote this tool about a year ago to help me interact with different Kubernetes clusters.</description>
+    </item>
+    
+  </channel>
+</rss>
