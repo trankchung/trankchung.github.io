@@ -6,7 +6,16 @@
     <description>Recent content on transcending ___</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 24 Jan 2021 19:57:07 -0500</lastBuildDate><atom:link href="https://www.tran-scending.net/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 31 Jan 2021 21:32:06 -0500</lastBuildDate><atom:link href="https://www.tran-scending.net/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo</title>
+      <link>https://www.tran-scending.net/posts/hugo/</link>
+      <pubDate>Sun, 31 Jan 2021 21:32:06 -0500</pubDate>
+      
+      <guid>https://www.tran-scending.net/posts/hugo/</guid>
+      <description>Finally had time to move my personal site from using Ghost to Hugo and hosted using GitHub Pages.</description>
+    </item>
+    
     <item>
       <title>Contact</title>
       <link>https://www.tran-scending.net/contact/</link>
@@ -36,7 +45,7 @@ Summary I am a System Engineer with more than 15 years experience in programming
       <pubDate>Sun, 24 Jan 2021 19:57:07 -0500</pubDate>
       
       <guid>https://www.tran-scending.net/projects/kubeswitch/</guid>
-      <description>Kubeswitch I wrote this tool about a year ago to help me interact with different Kubernetes clusters.</description>
+      <description>I wrote this tool about a year ago to help me interact with different Kubernetes clusters.</description>
     </item>
     
   </channel>
