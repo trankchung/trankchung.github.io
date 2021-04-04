@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-theme=""><head>
-    <title> Chung Tran | Tags </title>
+    <title> Chung Tran | Lvm </title>
 
     
     <meta charset="utf-8"><meta name="generator" content="Hugo 0.82.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -29,10 +29,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="https://www.tran-scending.net/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://www.tran-scending.net/favicon-16x16.png">
 
-    <link rel="canonical" href="https://www.tran-scending.net/tags/">
+    <link rel="canonical" href="https://www.tran-scending.net/pages/lvm/">
 
     
-    <link rel="alternate" type="application/rss+xml" href="https://www.tran-scending.net/tags/index.xml" title="transcending ___" />
     
     
     
@@ -51,8 +50,8 @@
                 crossorigin="anonymous"></script>
     
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Tags"/>
-<meta name="twitter:description" content="Automation, containerization, and open source advocate."/>
+<meta name="twitter:title" content="Lvm"/>
+<meta name="twitter:description" content="List physical, volume group, and logical volumes pvs vgs lvs Resize logical volume # RHEL 6 lvextend -L 4G /dev/mapper/rootvg-lv."/>
 
 </head>
 <body><div class="sidebar animated fadeInDown ">
@@ -143,11 +142,61 @@
 
     <div class="autopagerize_page_element">
         <div class="content">
-    <div class="archive  animated fadeInDown ">
-        <ul class="list-with-title">
+    <div class="post  animated fadeInDown ">
+        <div class="post-content">
             
-        </ul>
+            <div class="post-title">
+                <h3>Lvm</h3>
+                
+            </div>
+
+            <h2 id="list-physical-volume-group-and-logical-volumes">List physical, volume group, and logical volumes</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pvs
+vgs
+lvs
+</code></pre></div><h2 id="resize-logical-volume">Resize logical volume</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># RHEL 6</span>
+lvextend -L 4G /dev/mapper/rootvg-lv.tmp
+resize2fs /dev/mapper/rootvg-lv.tmp
+
+<span style="color:#75715e"># RHEL 7</span>
+lvextend -L 4G /dev/mapper/rootvg-lv.tmp
+xfs_growfs /dev/mapper/rootvg-lv.tmp
+</code></pre></div><h2 id="add-disk-to-logical-volume">Add disk to logical volume</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su -
+fdisk -c -u /dev/sdb
+n  <span style="color:#75715e"># new partition</span>
+p  <span style="color:#75715e"># physical partition</span>
+<span style="color:#ae81ff">1</span>  <span style="color:#75715e"># first partition, set begin &amp; end blocks</span>
+t  <span style="color:#75715e"># set type</span>
+8e <span style="color:#75715e"># set to Linux LVM</span>
+p  <span style="color:#75715e"># print what we have</span>
+w  <span style="color:#75715e"># write changes</span>
+
+pvcreate /dev/sdb1
+vgcreate vg_name /dev/sdb1
+vgextend rootvg /dev/sdb1
+vgdisplay  <span style="color:#75715e"># see what we have used and free</span>
+</code></pre></div><h2 id="create-new-logical-volume">Create new logical volume</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">lvcreate -L 90G -n lv.sqlmon rootvg
+mkfs.ext4 -j -m1 /dev/rootvg/lv.sqlmon  <span style="color:#75715e"># ext4</span>
+tune2fs -i0 -c0 /dev/rootvg/lv.sqlmon
+
+mkfs.xfs /dev/rootvg/lv.sqlmon          <span style="color:#75715e"># xfs</span>
+
+echo <span style="color:#e6db74">&#34;/dev/mapper/rootvg-lv.sqlmon /sqlmon ext4 defaults 1 2&#34;</span> &gt;&gt; /etc/fstab
+mount -a
+</code></pre></div></div>
+        <div class="post-footer">
+            <div class="info">
+                
+                
+            </div>
+        </div>
+
+        
     </div>
+
 
         </div>
     </div>

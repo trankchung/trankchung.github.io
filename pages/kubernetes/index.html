@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-theme=""><head>
-    <title> Chung Tran | Tags </title>
+    <title> Chung Tran | Kubernetes </title>
 
     
     <meta charset="utf-8"><meta name="generator" content="Hugo 0.82.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -29,10 +29,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="https://www.tran-scending.net/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://www.tran-scending.net/favicon-16x16.png">
 
-    <link rel="canonical" href="https://www.tran-scending.net/tags/">
+    <link rel="canonical" href="https://www.tran-scending.net/pages/kubernetes/">
 
     
-    <link rel="alternate" type="application/rss+xml" href="https://www.tran-scending.net/tags/index.xml" title="transcending ___" />
     
     
     
@@ -51,8 +50,8 @@
                 crossorigin="anonymous"></script>
     
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Tags"/>
-<meta name="twitter:description" content="Automation, containerization, and open source advocate."/>
+<meta name="twitter:title" content="Kubernetes"/>
+<meta name="twitter:description" content="System configuration sudo systemctl stop firewalld sudo systemctl disable firewalld sudo systemctl stop iptables sudo systemctl disable iptables sudo sysctl -w net."/>
 
 </head>
 <body><div class="sidebar animated fadeInDown ">
@@ -143,11 +142,51 @@
 
     <div class="autopagerize_page_element">
         <div class="content">
-    <div class="archive  animated fadeInDown ">
-        <ul class="list-with-title">
+    <div class="post  animated fadeInDown ">
+        <div class="post-content">
             
-        </ul>
+            <div class="post-title">
+                <h3>Kubernetes</h3>
+                
+            </div>
+
+            <h2 id="system-configuration">System configuration</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo systemctl stop firewalld
+sudo systemctl disable firewalld
+sudo systemctl stop iptables
+sudo systemctl disable iptables
+
+sudo sysctl -w net.ipv4.ip_forward<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+sudo sysctl -w net.ipv4.conf.all.rp_filter<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+
+<span style="color:#75715e"># Manjaro / Arch / CentOS 7</span>
+sudo echo <span style="color:#e6db74">&#34;net.ipv4.ip_forward = 1&#34;</span> &gt;&gt; /usr/lib/sysctl.d/50-default.conf
+sudo echo <span style="color:#e6db74">&#34;net.ipv4.conf.all.rp_filter = 1&#34;</span> &gt;&gt; /usr/lib/sysctl.d/50-default.conf
+<span style="color:#75715e"># Reboot</span>
+</code></pre></div><h2 id="microk8s">Microk8s</h2>
+<ol>
+<li>Install snapd via [[https://docs.snapcraft.io/installing-snapd/6735]]</li>
+<li><code>sudo snap install microk8s</code></li>
+<li><code>sudo microk8s.enable dns registry</code></li>
+<li>Add registry to file <strong>/var/snap/microk8s/current/args/docker-daemon.json</strong>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{ <span style="color:#f92672">&#34;insecure-registries&#34;</span> : [<span style="color:#e6db74">&#34;localhost:32000&#34;</span>, <span style="color:#e6db74">&#34;my-registry.local&#34;</span>] }
+</code></pre></div></li>
+</ol>
+<h2 id="rancher">Rancher</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">docker run -d --restart<span style="color:#f92672">=</span>always -p 8080:80 -p 8443:443 --name rancher-server rancher/rancher:latest
+</code></pre></div><h2 id="merge-all-config-files">Merge all config files</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cd $HOME/Documents/kube; KUBECONFIG<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>files<span style="color:#f92672">=(</span>*<span style="color:#f92672">)</span>; echo $files | sed -E <span style="color:#e6db74">&#39;s#\s+#:#g&#39;</span><span style="color:#e6db74">`</span> kubectl config view --merge --flatten &gt; $HOME/.kube/config; cd $HOME
+</code></pre></div></div>
+        <div class="post-footer">
+            <div class="info">
+                
+                
+            </div>
+        </div>
+
+        
     </div>
+
 
         </div>
     </div>

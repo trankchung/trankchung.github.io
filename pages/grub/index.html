@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-theme=""><head>
-    <title> Chung Tran | Tags </title>
+    <title> Chung Tran | Grub </title>
 
     
     <meta charset="utf-8"><meta name="generator" content="Hugo 0.82.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -29,10 +29,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="https://www.tran-scending.net/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://www.tran-scending.net/favicon-16x16.png">
 
-    <link rel="canonical" href="https://www.tran-scending.net/tags/">
+    <link rel="canonical" href="https://www.tran-scending.net/pages/grub/">
 
     
-    <link rel="alternate" type="application/rss+xml" href="https://www.tran-scending.net/tags/index.xml" title="transcending ___" />
     
     
     
@@ -51,8 +50,8 @@
                 crossorigin="anonymous"></script>
     
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Tags"/>
-<meta name="twitter:description" content="Automation, containerization, and open source advocate."/>
+<meta name="twitter:title" content="Grub"/>
+<meta name="twitter:description" content="Memorized boot option  Modify /etc/default/grub like below  GRUB_DEFAULT=saved   Re-generate /boot/grub/grub."/>
 
 </head>
 <body><div class="sidebar animated fadeInDown ">
@@ -143,11 +142,53 @@
 
     <div class="autopagerize_page_element">
         <div class="content">
-    <div class="archive  animated fadeInDown ">
-        <ul class="list-with-title">
+    <div class="post  animated fadeInDown ">
+        <div class="post-content">
             
-        </ul>
+            <div class="post-title">
+                <h3>Grub</h3>
+                
+            </div>
+
+            <h2 id="memorized-boot-option">Memorized boot option</h2>
+<ol>
+<li>Modify <strong>/etc/default/grub</strong> like below
+<ul>
+<li><code>GRUB_DEFAULT=saved</code></li>
+</ul>
+</li>
+<li>Re-generate <strong>/boot/grub/grub.cfg</strong> as root
+<ul>
+<li><code>grub-mkconfig &gt; /boot/grub/grub.cfg</code></li>
+</ul>
+</li>
+<li>Set your default OS to boot everytime
+<ul>
+<li><code>grub-set-default 0 # replace 0 with 1 for second OS, etc</code></li>
+</ul>
+</li>
+<li>Set a different OS to boot into once only
+<ul>
+<li><code>sudo grub-reboot 1 # replace 1 with 2 if you want to boot 3rd OS</code></li>
+</ul>
+</li>
+</ol>
+<h2 id="reinstall-grub">Reinstall grub</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo mount /dev/sda2 /mnt
+sudo mount --bind /dev /mnt/dev
+sudo chroot /mnt
+grub-install /dev/sda
+</code></pre></div></div>
+        <div class="post-footer">
+            <div class="info">
+                
+                
+            </div>
+        </div>
+
+        
     </div>
+
 
         </div>
     </div>

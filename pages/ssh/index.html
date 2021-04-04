@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-theme=""><head>
-    <title> Chung Tran | Tags </title>
+    <title> Chung Tran | Ssh </title>
 
     
     <meta charset="utf-8"><meta name="generator" content="Hugo 0.82.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -29,10 +29,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="https://www.tran-scending.net/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://www.tran-scending.net/favicon-16x16.png">
 
-    <link rel="canonical" href="https://www.tran-scending.net/tags/">
+    <link rel="canonical" href="https://www.tran-scending.net/pages/ssh/">
 
     
-    <link rel="alternate" type="application/rss+xml" href="https://www.tran-scending.net/tags/index.xml" title="transcending ___" />
     
     
     
@@ -51,8 +50,9 @@
                 crossorigin="anonymous"></script>
     
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Tags"/>
-<meta name="twitter:description" content="Automation, containerization, and open source advocate."/>
+<meta name="twitter:title" content="Ssh"/>
+<meta name="twitter:description" content="SSH over SOCKS5 proxy
+# Install tsocks sudo apt install tsocks # Ubuntu sudo pacman -S tsocks # Arch # Put content below into /etc/tsocks."/>
 
 </head>
 <body><div class="sidebar animated fadeInDown ">
@@ -143,11 +143,92 @@
 
     <div class="autopagerize_page_element">
         <div class="content">
-    <div class="archive  animated fadeInDown ">
-        <ul class="list-with-title">
+    <div class="post  animated fadeInDown ">
+        <div class="post-content">
             
-        </ul>
+            <div class="post-title">
+                <h3>Ssh</h3>
+                
+            </div>
+
+            <p>SSH over SOCKS5 proxy</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># Install tsocks</span>
+sudo apt install tsocks  <span style="color:#75715e"># Ubuntu</span>
+sudo pacman -S tsocks    <span style="color:#75715e"># Arch</span>
+
+<span style="color:#75715e"># Put content below into /etc/tsocks.conf</span>
+server <span style="color:#f92672">=</span> localhost
+server_port <span style="color:#f92672">=</span> <span style="color:#ae81ff">5600</span>
+server_type <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>
+
+<span style="color:#75715e"># On first terminal</span>
+ssh jumphost -D localhost:5600
+
+<span style="color:#75715e"># On second terminal</span>
+alias sst<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;tsocks ssh&#39;</span>
+sst desthost
+</code></pre></div><h2 id="ssh-x-forwarding">SSH X-Forwarding</h2>
+<h4 id="server-setup">Server Setup</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install xorg-x11-xauth xterm
+sudo vim /etc/ssh/sshd_config
+<span style="color:#75715e"># Change X11Forwarding to yes</span>
+sudo service sshd restart
+</code></pre></div><h4 id="on-mac-osx">On Mac OSX</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">- Install XQuartz from https://www.xquartz.org
+- ssh -Y user@server
+- echo $DISPLAY
+  - Should have something like <span style="color:#e6db74">&#34;localhost:10.0&#34;</span>
+- xauth list
+  - Should have something like <span style="color:#e6db74">&#34;us01vlomr001/unix:10  MIT-MAGIC-COOKIE-1  467d6d0e614d184ceff186651ee364e5&#34;</span>
+- xterm  <span style="color:#75715e"># You should have xterm run on your local but from remote server</span>
+- To have it working as another user, <span style="color:#66d9ef">for</span> example, oracle user
+  - sudo su - oracle
+  - echo $DISPLAY  <span style="color:#75715e"># Should have same value as 3a</span>
+  - xauth list  <span style="color:#75715e"># It&#39;s okay if error or no value</span>
+  - Copy the whole string from 4a without quotes
+  - xauth add <span style="color:#e6db74">&#34;copied value&#34;</span>   <span style="color:#75715e"># i.e.: xauth add us01vlomr001/unix:10  MIT-MAGIC-COOKIE-1  467d6d0e614d184ceff186651ee364e5</span>
+  - xterm  <span style="color:#75715e"># xterm should run locally but from remote server</span>
+</code></pre></div><h4 id="on-windows">On Windows</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">- Install putty from http://www.putty.org
+- Install Xming from http://www.straightrunning.com/XmingNotes
+- Create a copy of the Xming shortcut <span style="color:#66d9ef">for</span> yourself on desktop.
+  - Right click your shortcut and Properties
+  - Change :0 to :X, X means a different number. Each person should have a different number. – If you<span style="color:#960050;background-color:#1e0010">&#39;</span>re on the bastion hosts in DC4/NY2, reserve a personal display number on this page XMing setup <span style="color:#66d9ef">for</span> X11 tunneling
+  - Run your Xming shortcut
+- Running
+  - Putty
+    - Under Connection -&gt; SSH -&gt; X11, tick <span style="color:#e6db74">&#34;Enable X11 forwarding&#34;</span> and enter<span style="color:#e6db74">&#34;localhost:X&#34;</span>, replace X with your number
+  - Cygwin
+    - export DISPLAY<span style="color:#f92672">=</span>localhost:X, replace X with your number
+- Continue from step <span style="color:#ae81ff">3</span> in <span style="color:#e6db74">&#34;On MAC OSX&#34;</span> section
+</code></pre></div><h2 id="ssh-proxying">SSH Proxying</h2>
+<h4 id="reference">Reference</h4>
+<p><a href="http://www.webhostingtalk.com/showthread.php?t=539067">http://www.webhostingtalk.com/showthread.php?t=539067</a></p>
+<h4 id="using-putty">Using Putty</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">- SSH &gt;
+  - Enable compression
+  - Preferred SSH protocol version <span style="color:#ae81ff">2</span>
+  - Tunnels &gt;
+    - Dynamic
+    - Sourece Port: <span style="color:#ae81ff">8080</span>
+    - Click Add
+- Session &gt;
+  - Enter name and Save
+</code></pre></div><h4 id="using-ssh-on-linux">Using SSH on Linux</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">ssh -C -D <span style="color:#f92672">[</span>localhost<span style="color:#f92672">]</span>:8080 user@host
+</code></pre></div><h2 id="browser-configuration">Browser Configuration</h2>
+<p>Set proxy to use socks</p>
+</div>
+        <div class="post-footer">
+            <div class="info">
+                
+                
+            </div>
+        </div>
+
+        
     </div>
+
 
         </div>
     </div>

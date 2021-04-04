@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-theme=""><head>
-    <title> Chung Tran | Tags </title>
+    <title> Chung Tran | Vim </title>
 
     
     <meta charset="utf-8"><meta name="generator" content="Hugo 0.82.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -29,10 +29,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="https://www.tran-scending.net/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://www.tran-scending.net/favicon-16x16.png">
 
-    <link rel="canonical" href="https://www.tran-scending.net/tags/">
+    <link rel="canonical" href="https://www.tran-scending.net/pages/vim/">
 
     
-    <link rel="alternate" type="application/rss+xml" href="https://www.tran-scending.net/tags/index.xml" title="transcending ___" />
     
     
     
@@ -51,8 +50,8 @@
                 crossorigin="anonymous"></script>
     
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Tags"/>
-<meta name="twitter:description" content="Automation, containerization, and open source advocate."/>
+<meta name="twitter:title" content="Vim"/>
+<meta name="twitter:description" content="Plugged Plugin Manager  Install Plugged plugin manager via https://github.com/junegunn/vim-plug Add the following lines into your ~/."/>
 
 </head>
 <body><div class="sidebar animated fadeInDown ">
@@ -143,11 +142,60 @@
 
     <div class="autopagerize_page_element">
         <div class="content">
-    <div class="archive  animated fadeInDown ">
-        <ul class="list-with-title">
+    <div class="post  animated fadeInDown ">
+        <div class="post-content">
             
-        </ul>
+            <div class="post-title">
+                <h3>Vim</h3>
+                
+            </div>
+
+            <h2 id="plugged-plugin-manager">Plugged Plugin Manager</h2>
+<ol>
+<li>Install Plugged plugin manager via <a href="https://github.com/junegunn/vim-plug">https://github.com/junegunn/vim-plug</a></li>
+<li>Add the following lines into your <strong>~/.vimrc</strong> file
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">call plug#begin<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;~/.vim/plugged&#39;</span><span style="color:#f92672">)</span>
+  Plug <span style="color:#e6db74">&#39;godlygeek/csapprox&#39;</span>
+  <span style="color:#e6db74">&#34;Plug &#39;ctrlpvim/ctrlp.vim&#39;
+</span><span style="color:#e6db74">  Plug &#39;neoclide/coc.nvim&#39;, {&#39;branch&#39;: &#39;release&#39;}
+</span><span style="color:#e6db74">  Plug &#39;Raimondi/delimitMate&#39;
+</span><span style="color:#e6db74">  Plug &#39;dag/vim-fish&#39;
+</span><span style="color:#e6db74">  Plug &#39;fatih/vim-go&#39;
+</span><span style="color:#e6db74">  Plug &#39;vim-scripts/groovy.vim&#39;
+</span><span style="color:#e6db74">  Plug &#39;Yggdroot/indentLine&#39;
+</span><span style="color:#e6db74">  Plug &#39;marslo/jenkinsfile-vim-syntax&#39;
+</span><span style="color:#e6db74">  Plug &#39;preservim/nerdtree&#39;
+</span><span style="color:#e6db74">  Plug &#39;godlygeek/tabular&#39;
+</span><span style="color:#e6db74">  Plug &#39;edkolev/tmuxline.vim&#39;
+</span><span style="color:#e6db74">  Plug &#39;vim-airline/vim-airline&#39;
+</span><span style="color:#e6db74">  Plug &#39;vim-airline/vim-airline-themes&#39;
+</span><span style="color:#e6db74">  &#34;</span>Plug <span style="color:#e6db74">&#39;tpope/vim-endwise&#39;</span>
+  <span style="color:#e6db74">&#34;Plug &#39;tpope/vim-fugitive&#39;
+</span><span style="color:#e6db74">  Plug &#39;b4b4r07/vim-hcl&#39;
+</span><span style="color:#e6db74">  &#34;</span>Plug <span style="color:#e6db74">&#39;mustache/vim-mustache-handlebars&#39;</span>
+  Plug <span style="color:#e6db74">&#39;rodjek/vim-puppet&#39;</span>
+  Plug <span style="color:#e6db74">&#39;tpope/vim-rails&#39;</span>
+  Plug <span style="color:#e6db74">&#39;tpope/vim-surround&#39;</span>
+  Plug <span style="color:#e6db74">&#39;hashivim/vim-terraform&#39;</span>
+ 
+  <span style="color:#e6db74">&#34; Colors
+</span><span style="color:#e6db74">  Plug &#39;rakr/vim-one&#39;
+</span><span style="color:#e6db74">  Plug &#39;joshdick/onedark.vim&#39;
+</span><span style="color:#e6db74">call plug#end()
+</span></code></pre></div></li>
+<li>Inside vim, run <code>:PlugInstall</code> to install plugins</li>
+</ol>
+</div>
+        <div class="post-footer">
+            <div class="info">
+                
+                
+            </div>
+        </div>
+
+        
     </div>
+
 
         </div>
     </div>

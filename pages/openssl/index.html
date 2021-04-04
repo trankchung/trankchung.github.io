@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-theme=""><head>
-    <title> Chung Tran | Tags </title>
+    <title> Chung Tran | Openssl </title>
 
     
     <meta charset="utf-8"><meta name="generator" content="Hugo 0.82.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -29,10 +29,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="https://www.tran-scending.net/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://www.tran-scending.net/favicon-16x16.png">
 
-    <link rel="canonical" href="https://www.tran-scending.net/tags/">
+    <link rel="canonical" href="https://www.tran-scending.net/pages/openssl/">
 
     
-    <link rel="alternate" type="application/rss+xml" href="https://www.tran-scending.net/tags/index.xml" title="transcending ___" />
     
     
     
@@ -51,8 +50,8 @@
                 crossorigin="anonymous"></script>
     
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Tags"/>
-<meta name="twitter:description" content="Automation, containerization, and open source advocate."/>
+<meta name="twitter:title" content="Openssl"/>
+<meta name="twitter:description" content="Create a CA certificate/key pair # Generate a CA key protected with a password openssl genrsa -des3 -out ca."/>
 
 </head>
 <body><div class="sidebar animated fadeInDown ">
@@ -143,11 +142,67 @@
 
     <div class="autopagerize_page_element">
         <div class="content">
-    <div class="archive  animated fadeInDown ">
-        <ul class="list-with-title">
+    <div class="post  animated fadeInDown ">
+        <div class="post-content">
             
-        </ul>
+            <div class="post-title">
+                <h3>Openssl</h3>
+                
+            </div>
+
+            <h2 id="create-a-ca-certificatekey-pair">Create a CA certificate/key pair</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># Generate a CA key protected with a password</span>
+openssl genrsa -des3 -out ca.key <span style="color:#ae81ff">4096</span>
+
+<span style="color:#75715e"># Generate a CA certificate using key</span>
+openssl req -x509 -new -nodes -key ca.key -sha256 -days <span style="color:#ae81ff">3065</span> -out ca.crt
+</code></pre></div><h2 id="signing-a-certificate-with-ca-certificate">Signing a certificate with CA certificate</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">1. Create a site.key using
+openssl genrsa -out site.key <span style="color:#ae81ff">2048</span>
+
+2. Generate a site.csr using
+openssl req -new -key site.key -out site.csr
+
+3. Create a site.ext using <span style="color:#e6db74">&#34;Extension Template&#34;</span> below <span style="color:#f92672">(</span>Optional<span style="color:#f92672">)</span>
+
+4. Create site.crt using site.csr with
+openssl x509 -req -in site.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out site.crt -days <span style="color:#ae81ff">3650</span> -sha256 -extfile site.ext
+</code></pre></div><h2 id="generate-a-self-signed-certificate">Generate a self-signed certificate</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days <span style="color:#ae81ff">3650</span> -nodes
+</code></pre></div><h2 id="convert-cert-to-pem">Convert Cert to PEM</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">openssl x509 -in site.crt -out cert.pem -outform PEM
+</code></pre></div><h2 id="view-keycrtcsr">View key/crt/csr</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">openssl rsa -in filename.key -check
+openssl x509 -in filename.crt -noout -text
+openssl req -in filename.csr -noout -text
+</code></pre></div><h2 id="convert-certificate">Convert certificate</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">openssl x509 -in input.crt -out output.der -outform DER
+openssl x509 -in input.der -out output.pem -outform PEM
+</code></pre></div><h2 id="extension-template">Extension Template</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">authorityKeyIdentifier<span style="color:#f92672">=</span>keyid,issuer
+basicConstraints<span style="color:#f92672">=</span>CA:FALSE
+keyUsage <span style="color:#f92672">=</span> digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
+subjectAltName <span style="color:#f92672">=</span> @alt_names
+
+<span style="color:#f92672">[</span>alt_names<span style="color:#f92672">]</span>
+IP.1 <span style="color:#f92672">=</span> IP1
+IP.2 <span style="color:#f92672">=</span> IP2
+DNS.1 <span style="color:#f92672">=</span> DNS1
+DNS.2 <span style="color:#f92672">=</span> DNS2
+</code></pre></div><h2 id="import-ca">Import CA</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># Arch</span>
+sudo trust anchor --store /path/to/cert.cert /etc/ca-certificates/trust-source/anchors
+</code></pre></div></div>
+        <div class="post-footer">
+            <div class="info">
+                
+                
+            </div>
+        </div>
+
+        
     </div>
+
 
         </div>
     </div>

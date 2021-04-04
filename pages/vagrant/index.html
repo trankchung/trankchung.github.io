@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-theme=""><head>
-    <title> Chung Tran | Tags </title>
+    <title> Chung Tran | Vagrant </title>
 
     
     <meta charset="utf-8"><meta name="generator" content="Hugo 0.82.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -29,10 +29,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="https://www.tran-scending.net/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://www.tran-scending.net/favicon-16x16.png">
 
-    <link rel="canonical" href="https://www.tran-scending.net/tags/">
+    <link rel="canonical" href="https://www.tran-scending.net/pages/vagrant/">
 
     
-    <link rel="alternate" type="application/rss+xml" href="https://www.tran-scending.net/tags/index.xml" title="transcending ___" />
     
     
     
@@ -51,8 +50,8 @@
                 crossorigin="anonymous"></script>
     
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Tags"/>
-<meta name="twitter:description" content="Automation, containerization, and open source advocate."/>
+<meta name="twitter:title" content="Vagrant"/>
+<meta name="twitter:description" content="Create base box Install OS using the following conditions  Use vagrant as username and password Install Virtual Box Guest Addition Add public key below to ~/."/>
 
 </head>
 <body><div class="sidebar animated fadeInDown ">
@@ -143,11 +142,55 @@
 
     <div class="autopagerize_page_element">
         <div class="content">
-    <div class="archive  animated fadeInDown ">
-        <ul class="list-with-title">
+    <div class="post  animated fadeInDown ">
+        <div class="post-content">
             
-        </ul>
+            <div class="post-title">
+                <h3>Vagrant</h3>
+                
+            </div>
+
+            <h2 id="create-base-box">Create base box</h2>
+<h4 id="install-os-using-the-following-conditions">Install OS using the following conditions</h4>
+<ul>
+<li>Use <strong>vagrant</strong> as username and password</li>
+<li>Install <strong>Virtual Box Guest Addition</strong></li>
+<li>Add public key below to <strong>~/.ssh/authorized_keys</strong></li>
+<li>Chmod <strong>authorized_keys</strong> to <strong>600</strong> and <strong>.ssh</strong> to <strong>700</strong></li>
+<li>Change <strong>root</strong> password to <strong>vagrant</strong></li>
+<li>Add entry below to <strong>visudo</strong>
+<ul>
+<li>//vagrant ALL=(ALL) NOPASSWD: ALL//</li>
+</ul>
+</li>
+<li>Install <strong>openssh-server</strong>
+<ul>
+<li>Add <strong>UseDNS no</strong> to end of <strong>/etc/ssh/sshd_config</strong></li>
+</ul>
+</li>
+</ul>
+<h4 id="public-key">Public key</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA6NF8iallvQVp22WDkTkyrtvp9eWW6A8YVr+kz4TjGYe7gHzIw+niNltGEFHzD8+v1I2YJ6oXevct1YeS0o9HZyN1Q9qgCgzUFtdOKLv6IedplqoPkcmF0aYet2PkEDo3MlTBckFXPITAMzF8dJSIFo9D8HfdOV0IAdx4O7PtixWKn5y2hMNG0zQPyUecp4pzC6kivAIhyfHilFR61RGL+GPXQ2MWZWFYbAGjyiYJnAmCP3NOTd0jMZEnDkbUvxhMmBYSdETk1rRgm+R4LOzFUGaHqHDLKLX+FIPKcF96hrucXzcWyLbIbEgE98OHlnVYCzRdK8jlqm8tehUc9c9WhQ<span style="color:#f92672">==</span> vagrant insecure public key
+wget https://raw.githubusercontent.com/hashicorp/vagrant/master/keys/vagrant.pub
+</code></pre></div><h2 id="package-base-box">Package base box</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">vagrant package --base BOX_NAME --output OUTPUT_NAME
+vagrant package --base <span style="color:#e6db74">&#34;My VM&#34;</span> --output myvm.box
+</code></pre></div><h2 id="add-box-to-vagrant-boxes-list">Add box to vagrant boxes list</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">vagrant box add --name BOX_NAME /path/to/vm.box
+vagrant box add --name tranchung/myvm /path/to/vm.box
+</code></pre></div><h2 id="publish-to-hashicorp-atlas">Publish to HashiCorp Atlas</h2>
+<p>Log into <a href="https://app.vagrantup.com/session">https://app.vagrantup.com/session</a> and upload your box.</p>
+</div>
+        <div class="post-footer">
+            <div class="info">
+                
+                
+            </div>
+        </div>
+
+        
     </div>
+
 
         </div>
     </div>

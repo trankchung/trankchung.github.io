@@ -1,48 +1,108 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
+    <loc>https://www.tran-scending.net/pages/grub/</loc>
+    <lastmod>2021-04-04T15:52:28-04:00</lastmod>
+  </url><url>
+    <loc>https://www.tran-scending.net/pages/kubeadm/</loc>
+    <lastmod>2021-04-04T15:52:28-04:00</lastmod>
+  </url><url>
+    <loc>https://www.tran-scending.net/pages/kubernetes/</loc>
+    <lastmod>2021-04-04T15:52:28-04:00</lastmod>
+  </url><url>
+    <loc>https://www.tran-scending.net/pages/letsencrypt/</loc>
+    <lastmod>2021-04-04T15:52:28-04:00</lastmod>
+  </url><url>
+    <loc>https://www.tran-scending.net/pages/lvm/</loc>
+    <lastmod>2021-04-04T15:52:28-04:00</lastmod>
+  </url><url>
+    <loc>https://www.tran-scending.net/pages/misc/</loc>
+    <lastmod>2021-04-04T15:52:28-04:00</lastmod>
+  </url><url>
+    <loc>https://www.tran-scending.net/pages/mysql/</loc>
+    <lastmod>2021-04-04T15:52:28-04:00</lastmod>
+  </url><url>
+    <loc>https://www.tran-scending.net/pages/nginx/</loc>
+    <lastmod>2021-04-04T15:52:28-04:00</lastmod>
+  </url><url>
+    <loc>https://www.tran-scending.net/pages/openssl/</loc>
+    <lastmod>2021-04-04T15:52:28-04:00</lastmod>
+  </url><url>
+    <loc>https://www.tran-scending.net/pages/</loc>
+    <lastmod>2021-04-04T15:52:28-04:00</lastmod>
+  </url><url>
+    <loc>https://www.tran-scending.net/pages/phpbrew/</loc>
+    <lastmod>2021-04-04T15:52:28-04:00</lastmod>
+  </url><url>
+    <loc>https://www.tran-scending.net/pages/samba/</loc>
+    <lastmod>2021-04-04T15:52:28-04:00</lastmod>
+  </url><url>
+    <loc>https://www.tran-scending.net/pages/ssh/</loc>
+    <lastmod>2021-04-04T15:52:28-04:00</lastmod>
+  </url><url>
+    <loc>https://www.tran-scending.net/pages/tcpdump/</loc>
+    <lastmod>2021-04-04T15:52:28-04:00</lastmod>
+  </url><url>
+    <loc>https://www.tran-scending.net/pages/tools/</loc>
+    <lastmod>2021-04-04T15:52:28-04:00</lastmod>
+  </url><url>
+    <loc>https://www.tran-scending.net/</loc>
+    <lastmod>2021-04-04T15:52:28-04:00</lastmod>
+  </url><url>
+    <loc>https://www.tran-scending.net/pages/vagrant/</loc>
+    <lastmod>2021-04-04T15:52:28-04:00</lastmod>
+  </url><url>
+    <loc>https://www.tran-scending.net/pages/vault/</loc>
+    <lastmod>2021-04-04T15:52:28-04:00</lastmod>
+  </url><url>
+    <loc>https://www.tran-scending.net/pages/vim/</loc>
+    <lastmod>2021-04-04T15:52:28-04:00</lastmod>
+  </url><url>
+    <loc>https://www.tran-scending.net/pages/virtualbox/</loc>
+    <lastmod>2021-04-04T15:52:28-04:00</lastmod>
+  </url><url>
+    <loc>https://www.tran-scending.net/pages/wsl/</loc>
+    <lastmod>2021-04-04T15:52:28-04:00</lastmod>
+  </url><url>
+    <loc>https://www.tran-scending.net/pages/apache/</loc>
+    <lastmod>2021-04-04T15:52:27-04:00</lastmod>
+  </url><url>
+    <loc>https://www.tran-scending.net/pages/archlinux/</loc>
+    <lastmod>2021-04-04T15:52:27-04:00</lastmod>
+  </url><url>
+    <loc>https://www.tran-scending.net/pages/docker/</loc>
+    <lastmod>2021-04-04T15:52:27-04:00</lastmod>
+  </url><url>
+    <loc>https://www.tran-scending.net/pages/firewalld/</loc>
+    <lastmod>2021-04-04T15:52:27-04:00</lastmod>
+  </url><url>
+    <loc>https://www.tran-scending.net/pages/fpm/</loc>
+    <lastmod>2021-04-04T15:52:27-04:00</lastmod>
+  </url><url>
+    <loc>https://www.tran-scending.net/wiki/</loc>
+    <lastmod>2021-04-04T15:46:00-04:00</lastmod>
+  </url><url>
     <loc>https://www.tran-scending.net/posts/hugo/</loc>
     <lastmod>2021-01-31T21:32:06-05:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.tran-scending.net/posts/</loc>
     <lastmod>2021-01-31T21:32:06-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.tran-scending.net/</loc>
-    <lastmod>2021-01-31T21:32:06-05:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.tran-scending.net/contact/</loc>
     <lastmod>2021-01-24T21:01:40-05:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.tran-scending.net/profile/</loc>
     <lastmod>2021-01-24T20:10:25-05:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.tran-scending.net/projects/kubeswitch/</loc>
     <lastmod>2021-01-24T19:57:07-05:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.tran-scending.net/projects/</loc>
     <lastmod>2021-01-24T19:57:07-05:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.tran-scending.net/categories/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.tran-scending.net/tags/</loc>
   </url>
-  
 </urlset>

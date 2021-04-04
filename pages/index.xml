@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>transcending ___</title>
-    <link>https://www.tran-scending.net/</link>
-    <description>Recent content on transcending ___</description>
+    <title>Pages on transcending ___</title>
+    <link>https://www.tran-scending.net/pages/</link>
+    <description>Recent content in Pages on transcending ___</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 04 Apr 2021 15:52:28 -0400</lastBuildDate><atom:link href="https://www.tran-scending.net/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Apr 2021 15:52:28 -0400</lastBuildDate><atom:link href="https://www.tran-scending.net/pages/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Grub</title>
       <link>https://www.tran-scending.net/pages/grub/</link>
@@ -224,56 +224,6 @@ Zones firewall-cmd --get-zones # list zones firewall-cmd --list-all --zone=exter
       
       <guid>https://www.tran-scending.net/pages/fpm/</guid>
       <description>Create RPM fpm -s dir -t rpm -n browsermob-proxy -v 2.</description>
-    </item>
-    
-    <item>
-      <title>Wiki</title>
-      <link>https://www.tran-scending.net/wiki/</link>
-      <pubDate>Sun, 04 Apr 2021 15:46:00 -0400</pubDate>
-      
-      <guid>https://www.tran-scending.net/wiki/</guid>
-      <description> Apache Archlinux Docker firewalld fpm grub Kubeadm Kubernetes LetsEncrypt LVM Misc MySQL nginx OpenSSL PhpBrew Samba SSH tcpdump tools vagrant vault vim VirtualBox WSL  </description>
-    </item>
-    
-    <item>
-      <title>Hugo</title>
-      <link>https://www.tran-scending.net/posts/hugo/</link>
-      <pubDate>Sun, 31 Jan 2021 21:32:06 -0500</pubDate>
-      
-      <guid>https://www.tran-scending.net/posts/hugo/</guid>
-      <description>Finally had time to move my personal site from using Ghost to Hugo and hosted using GitHub Pages.</description>
-    </item>
-    
-    <item>
-      <title>Contact</title>
-      <link>https://www.tran-scending.net/contact/</link>
-      <pubDate>Sun, 24 Jan 2021 21:01:40 -0500</pubDate>
-      
-      <guid>https://www.tran-scending.net/contact/</guid>
-      <description>Chung Tran
-Charlotte, NC
-(704) 699-7781
-chung.k.tran@gmail.com
-https://www.linkedin.com/in/chung-tran-38118350/</description>
-    </item>
-    
-    <item>
-      <title>Profile</title>
-      <link>https://www.tran-scending.net/profile/</link>
-      <pubDate>Sun, 24 Jan 2021 20:10:25 -0500</pubDate>
-      
-      <guid>https://www.tran-scending.net/profile/</guid>
-      <description>Download Resume
-Summary I am a System Engineer with more than 15 years experience in programming, networking, and hosting in Linux and Windows environments.</description>
-    </item>
-    
-    <item>
-      <title>Kubeswitch</title>
-      <link>https://www.tran-scending.net/projects/kubeswitch/</link>
-      <pubDate>Sun, 24 Jan 2021 19:57:07 -0500</pubDate>
-      
-      <guid>https://www.tran-scending.net/projects/kubeswitch/</guid>
-      <description>I wrote this tool about a year ago to help me interact with different Kubernetes clusters.</description>
     </item>
     
   </channel>

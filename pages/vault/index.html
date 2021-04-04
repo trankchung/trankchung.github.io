@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" data-theme=""><head>
+    <title> Chung Tran | Vault </title>
+
+    
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.82.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="Automation, containerization, and open source advocate.">
+    
+    <link rel="stylesheet"
+          href="https://www.tran-scending.net/css/style.min.0c643de4008adca329f7a2d616ce308cca99d4ef45e4cca307323e7857910194.css"
+          integrity="sha256-DGQ95ACK3KMp96LWFs4wjMqZ1O9F5MyjBzI&#43;eFeRAZQ="
+          crossorigin="anonymous"
+          type="text/css">
+    
+    <link rel="stylesheet"
+        href="https://www.tran-scending.net/css/markupHighlight.min.8735c129318a1c824d066fc2cd1e3911054460819c296ac99007aeb5044b6605.css"
+        integrity="sha256-hzXBKTGKHIJNBm/CzR45EQVEYIGcKWrJkAeutQRLZgU="
+        crossorigin="anonymous"
+        type="text/css">
+    
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" 
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" 
+    crossorigin="anonymous" />
+
+    
+    <link rel="shortcut icon" href="https://www.tran-scending.net/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.tran-scending.net/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://www.tran-scending.net/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://www.tran-scending.net/favicon-16x16.png">
+
+    <link rel="canonical" href="https://www.tran-scending.net/pages/vault/">
+
+    
+    
+    
+    
+    <script type="text/javascript"
+            src="https://www.tran-scending.net/js/anatole-header.min.0c05c0a90d28c968a1cad4fb31abd0b8e1264e788ccefed022ae1d3b6f627514.js"
+            integrity="sha256-DAXAqQ0oyWihytT7MavQuOEmTniMzv7QIq4dO29idRQ="
+            crossorigin="anonymous"></script>
+
+
+    
+        
+        
+        <script type="text/javascript"
+                src="https://www.tran-scending.net/js/anatole-theme-switcher.min.8ef71e0fd43f21a303733dbbecae5438b791d2b826c68a9883bd7aa459a076d2.js"
+                integrity="sha256-jvceD9Q/IaMDcz277K5UOLeR0rgmxoqYg716pFmgdtI="
+                crossorigin="anonymous"></script>
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Vault"/>
+<meta name="twitter:description" content="Interactions export VAULT_ADDR=http://127.0.0.1:8200 vault init -key-shares=1 -key-threshold=1 # Initialize vault. Save keys and root token vault unseal [unseal key] # Do this N number of times as -key-shares when initializing vault vault login [token] # Login into vault to perform actions Endpoints vault secrets enable -path=[endpoint] [storage_backend] # Create secret endpoint vault secrets enable -description=&#34;chimera simple ping sites&#34; -path=sites kv # Created key/value endpoint at /sites vault secrets enable -description=&#34;chimera passwords storage&#34; -path=passwords kv # Created key/value endpoint at /passwords vault secrets enable -description=&#34;sqlmon connections storage&#34; -path=sqlmon kv # Created key/value endpoint at /sqlmon vault secrets list [-detailed] # List all available enpoints Policies vault policy list # List policies vault policy read [policy_name] # Read content of a policy vault policy read [chimera] vault policy write [policy_name] [policy_file] # Create a policy vault policy write synthetic policy."/>
+
+</head>
+<body><div class="sidebar animated fadeInDown ">
+    <div class="logo-title">
+        <div class="title">
+            <img src="https://www.tran-scending.net/images/portrait.jpg" alt="profile picture">
+            <h3 title=""><a href="/">Chung Tran</a></h3>
+            <div class="description">
+                <p>Automation, containerization, and open source advocate.</p>
+            </div>
+        </div>
+    </div>
+    <ul class="social-links">
+        
+            <li>
+                <a href="https://www.linkedin.com/in/chung-tran-38118350/" rel="me" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            <li>
+                <a href="https://github.com/trankchung/" rel="me" aria-label="GitHub">
+                    <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            <li>
+                <a href="mailto:chung.k.tran@gmail.com" rel="me" aria-label="E-Mail">
+                    <i class="fas fa-envelope fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; Chung Tran  2021 </div>
+    </div>
+</div>
+<div class="main">
+    <div class="page-top  animated fadeInDown ">
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+    </a>
+    <ul class="nav" id="navMenu">
+        
+        
+            
+            <li><a 
+                   href="/profile/"
+                        
+                   title="">Profile</a></li>
+        
+            
+            <li><a 
+                   href="/posts/"
+                        
+                   title="">Posts</a></li>
+        
+            
+            <li><a 
+                   href="/projects/"
+                        
+                   title="">Projects</a></li>
+        
+            
+            <li><a 
+                   href="/contact/"
+                        
+                   title="">Contact</a></li>
+        
+            
+            <li><a 
+                   href="/wiki/"
+                        
+                   title="">Wiki</a></li>
+        
+        
+        
+            <li class="theme-switch-item">
+                <a class="theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+    </ul>
+</div>
+
+    <div class="autopagerize_page_element">
+        <div class="content">
+    <div class="post  animated fadeInDown ">
+        <div class="post-content">
+            
+            <div class="post-title">
+                <h3>Vault</h3>
+                
+            </div>
+
+            <h2 id="interactions">Interactions</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">  export VAULT_ADDR<span style="color:#f92672">=</span>http://127.0.0.1:8200
+  vault init -key-shares<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> -key-threshold<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>  <span style="color:#75715e"># Initialize vault. Save keys and root token</span>
+  vault unseal <span style="color:#f92672">[</span>unseal key<span style="color:#f92672">]</span>                  <span style="color:#75715e"># Do this N number of times as -key-shares when initializing vault</span>
+  vault login <span style="color:#f92672">[</span>token<span style="color:#f92672">]</span>                        <span style="color:#75715e"># Login into vault to perform actions</span>
+</code></pre></div><h2 id="endpoints">Endpoints</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">  vault secrets enable -path<span style="color:#f92672">=[</span>endpoint<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>storage_backend<span style="color:#f92672">]</span>  <span style="color:#75715e"># Create secret endpoint</span>
+  vault secrets enable -description<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;chimera simple ping sites&#34;</span> -path<span style="color:#f92672">=</span>sites kv     <span style="color:#75715e"># Created key/value endpoint at /sites</span>
+  vault secrets enable -description<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;chimera passwords storage&#34;</span> -path<span style="color:#f92672">=</span>passwords kv <span style="color:#75715e"># Created key/value endpoint at /passwords</span>
+  vault secrets enable -description<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sqlmon connections storage&#34;</span> -path<span style="color:#f92672">=</span>sqlmon kv   <span style="color:#75715e"># Created key/value endpoint at /sqlmon</span>
+
+  
+  vault secrets list <span style="color:#f92672">[</span>-detailed<span style="color:#f92672">]</span>                           <span style="color:#75715e"># List all available enpoints</span>
+</code></pre></div><h2 id="policies">Policies</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">  vault policy list                              <span style="color:#75715e"># List policies</span>
+  
+  vault policy read <span style="color:#f92672">[</span>policy_name<span style="color:#f92672">]</span>                <span style="color:#75715e"># Read content of a policy</span>
+  vault policy read <span style="color:#f92672">[</span>chimera<span style="color:#f92672">]</span>
+  
+  vault policy write <span style="color:#f92672">[</span>policy_name<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>policy_file<span style="color:#f92672">]</span> <span style="color:#75715e"># Create a policy</span>
+  vault policy write synthetic policy.hcl
+    <span style="color:#75715e"># Sample policy file</span>
+    path <span style="color:#e6db74">&#34;sites/*&#34;</span> <span style="color:#f92672">{</span>
+      capabilities <span style="color:#f92672">=</span> <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;create&#34;</span>, <span style="color:#e6db74">&#34;read&#34;</span>, <span style="color:#e6db74">&#34;update&#34;</span>, <span style="color:#e6db74">&#34;delete&#34;</span>, <span style="color:#e6db74">&#34;list&#34;</span><span style="color:#f92672">]</span>
+    <span style="color:#f92672">}</span>
+    path <span style="color:#e6db74">&#34;passwords/*&#34;</span> <span style="color:#f92672">{</span>
+      capabilities <span style="color:#f92672">=</span> <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;create&#34;</span>, <span style="color:#e6db74">&#34;read&#34;</span>, <span style="color:#e6db74">&#34;update&#34;</span>, <span style="color:#e6db74">&#34;delete&#34;</span>, <span style="color:#e6db74">&#34;list&#34;</span><span style="color:#f92672">]</span>
+    <span style="color:#f92672">}</span>
+</code></pre></div><h2 id="tokens">Tokens</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">  vault token lookup <span style="color:#f92672">[</span>token<span style="color:#f92672">]</span>                  <span style="color:#75715e"># Display token info</span>
+  vault token lookup -accessor <span style="color:#f92672">[</span>accessor ID<span style="color:#f92672">]</span>  <span style="color:#75715e"># Display token info by accessor ID</span>
+  
+  vault token create -period<span style="color:#f92672">=[</span>lifetime<span style="color:#f92672">]</span>                 <span style="color:#75715e"># Create token with specified lifetime (s, m, or h)</span>
+  vault token create -policy<span style="color:#f92672">=[</span>policy<span style="color:#f92672">]</span> -policy<span style="color:#f92672">=[</span>policy<span style="color:#f92672">]</span>  <span style="color:#75715e"># Create token with policies</span>
+  vault token create -display-name<span style="color:#f92672">=[</span>display_name<span style="color:#f92672">]</span>       <span style="color:#75715e"># Create a token with human display name</span>
+  vault token create -display-name<span style="color:#f92672">=</span>synthetic -policy<span style="color:#f92672">=</span>synthetic -period<span style="color:#f92672">=</span>87600h
+</code></pre></div><h2 id="secrets">Secrets</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">  vault list <span style="color:#f92672">[</span>path<span style="color:#f92672">]</span>  <span style="color:#75715e"># Show all keys under endpoint</span>
+  vault list sites
+  vault list passwords
+  
+  vault read <span style="color:#f92672">[</span>path<span style="color:#f92672">]</span>/<span style="color:#f92672">[</span>secret<span style="color:#f92672">]</span>           <span style="color:#75715e"># Read content of secret endpoint</span>
+  vault read <span style="color:#f92672">[</span>path<span style="color:#f92672">]</span>/<span style="color:#f92672">[</span>folder<span style="color:#f92672">]</span>/<span style="color:#f92672">[</span>secret<span style="color:#f92672">]</span>  <span style="color:#75715e"># Read content of nested secret endpoint</span>
+  vault read sites/oflows
+  vault read sites/bottomline_tech
+  
+  vault write <span style="color:#f92672">[</span>path<span style="color:#f92672">]</span>/<span style="color:#f92672">[</span>secret<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>k<span style="color:#f92672">]=[</span>v<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>k<span style="color:#f92672">]=[</span>v<span style="color:#f92672">]</span>         <span style="color:#75715e"># Write key/value to secret endpoint</span>
+  vault write passwords/pmx key1<span style="color:#f92672">=</span>val1 key2<span style="color:#f92672">=</span>val2
+  
+  vault write <span style="color:#f92672">[</span>path<span style="color:#f92672">]</span>/<span style="color:#f92672">[</span>folder<span style="color:#f92672">]</span>/<span style="color:#f92672">[</span>secret<span style="color:#f92672">]</span>                <span style="color:#75715e"># Nested folders endpoint</span>
+  vault write passwords/lsm/legalx/site1 user1<span style="color:#f92672">=</span>pass1
+</code></pre></div><h2 id="pki-certificates">PKI Certificates</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># Reference: https://www.vaultproject.io/api/secret/pki/index.html</span>
+
+1. Enable PKI secrets
+vault secrets enable pki
+
+2. Set global secret TTL to <span style="color:#ae81ff">20</span> years
+vault secrets tune -max-lease-ttl<span style="color:#f92672">=</span>175320h pki
+
+3. Generate a CA
+<span style="color:#75715e"># SAVE THE PRIVATE KEY. CANNOT BE RETRIEVED LATER</span>
+vault write pki/root/generate/exported <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  common_name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Company Name Certificate Authority&#34;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  organization<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Company Name&#34;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  country<span style="color:#f92672">=</span>US <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  province<span style="color:#f92672">=</span>State <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  locality<span style="color:#f92672">=</span>City <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  street_address<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Address&#34;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  postal_code<span style="color:#f92672">=</span>Zip <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  ttl<span style="color:#f92672">=</span>87660h
+
+4.  Set cert request and CRL endpoints
+vault write pki/config/urls <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  issuing_certificates<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://localhost:8200/v1/pki/ca&#34;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  crl_distribution_points<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://localhost:8200/v1/pki/crl&#34;</span>
+
+5. Create a role that can generate certificate
+vault write pki/roles/<span style="color:#f92672">[</span>role<span style="color:#f92672">]</span> ...
+vault write pki/roles/role1 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  allowed_domains<span style="color:#f92672">=</span>example.com,home.local <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  allow_subdomains<span style="color:#f92672">=</span>true <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  allow_bare_domains<span style="color:#f92672">=</span>true <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  organization<span style="color:#f92672">=</span>Bottomline <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  country<span style="color:#f92672">=</span>US <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  province<span style="color:#f92672">=</span>State <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  locality<span style="color:#f92672">=</span>City <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  street_address<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Address&#34;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  postal_code<span style="color:#f92672">=</span>Zip <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  ttl<span style="color:#f92672">=</span>87660h
+
+6. Generate a client certifcate
+vault write pki/issue/<span style="color:#f92672">[</span>role<span style="color:#f92672">]</span> ...
+vault write pki/issue/role1 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  common_name<span style="color:#f92672">=</span>localhost <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  alt_names<span style="color:#f92672">=</span>localhos7 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  ip_sans<span style="color:#f92672">=</span>127.0.0.1,10.0.2.15,192.168.50.10 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  ttl<span style="color:#f92672">=</span>43830h
+</code></pre></div><h2 id="auto-unseal-transit-engine">Auto-Unseal Transit Engine</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># Master</span>
+<span style="color:#e6db74">```</span>shell
+export VAULT_ADDR<span style="color:#f92672">=</span>http://master:8200
+export VAULT_TOKEN<span style="color:#f92672">=</span>&lt;master root token&gt;
+vault secrets enable transit
+vault write -f transit/keys/autounseal
+vim policy_autounseal.hcl
+  path <span style="color:#e6db74">&#34;transit/encrypt/autounseal&#34;</span> <span style="color:#f92672">{</span>
+     capabilities <span style="color:#f92672">=</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;update&#34;</span> <span style="color:#f92672">]</span>
+  <span style="color:#f92672">}</span>
+
+  path <span style="color:#e6db74">&#34;transit/decrypt/autounseal&#34;</span> <span style="color:#f92672">{</span>
+     capabilities <span style="color:#f92672">=</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;update&#34;</span> <span style="color:#f92672">]</span>
+  <span style="color:#f92672">}</span>
+vault policy write autounseal policy_autounseal.hcl
+vault token create -policy autounseal -period<span style="color:#f92672">=</span>87600h  <span style="color:#75715e"># save the token</span>
+
+<span style="color:#75715e"># Secondary</span>
+export VAULT_ADDR<span style="color:#f92672">=</span>http://secondary:8200
+export VAULT_TOKEN<span style="color:#f92672">=</span>&lt;token created from Master&gt;
+vim /etc/vault/config.hcl
+  seal <span style="color:#e6db74">&#34;transit&#34;</span> <span style="color:#f92672">{</span>
+    address <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;http://MASTER:8200&#34;</span>
+    disable_renewal <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;false&#34;</span>
+    key_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;autounseal&#34;</span>
+    mount_path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;transit/&#34;</span>
+  <span style="color:#f92672">}</span>
+vault server -config /etc/vault/config.hcl
+vault operator init -recovery-shares<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span> -recovery-threshold<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>
+vault status  <span style="color:#75715e"># Sealed should be false</span>
+</code></pre></div><h2 id="running">Running</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">  vault server -config<span style="color:#f92672">=</span>/path/to/config.hcl
+    <span style="color:#75715e"># Sample config file</span>
+    storage <span style="color:#e6db74">&#34;consul&#34;</span> <span style="color:#f92672">{</span>
+      address <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;127.0.0.1:8500&#34;</span>
+      path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;vault&#34;</span>
+      check_timeout <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;300s&#34;</span>
+      scheme <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;http&#34;</span>
+    <span style="color:#f92672">}</span>
+    listener <span style="color:#e6db74">&#34;tcp&#34;</span> <span style="color:#f92672">{</span>
+      tls_disable <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#f92672">}</span>
+</code></pre></div></div>
+        <div class="post-footer">
+            <div class="info">
+                
+                
+            </div>
+        </div>
+
+        
+    </div>
+
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript"
+        src="https://www.tran-scending.net/js/jquery.min.64d0083866906099f942140bc1c5cba4b1bf65783c52e4a63c5c46bf9dbc41f4.js"
+        integrity="sha256-ZNAIOGaQYJn5QhQLwcXLpLG/ZXg8UuSmPFxGv528QfQ="
+        crossorigin="anonymous"></script>
+
+
+
+
+<script type="text/javascript"
+        src="https://www.tran-scending.net/js/bundle.min.45159b0e20ba3878972e064b7edc464c31a9e35a0d0a6a71e3fec84efdbe2ea5.js"
+        integrity="sha256-RRWbDiC6OHiXLgZLftxGTDGp41oNCmpx4/7ITv2&#43;LqU="
+        crossorigin="anonymous"></script>
+
+<script type="text/javascript"
+        src="https://www.tran-scending.net/js/medium-zoom.min.2d6fd0be87fa98f0c9b4dc2536b312bbca48757f584f6ea1f394abc9bcc38fbc.js"
+        integrity="sha256-LW/Qvof6mPDJtNwlNrMSu8pIdX9YT26h85SrybzDj7w="
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
