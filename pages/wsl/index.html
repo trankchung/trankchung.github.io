@@ -170,14 +170,14 @@ cd rootfs <span style="color:#f92672">&amp;&amp;</span> tar czf ../rootfs.tar.gz
 </code></pre></div><h2 id="create-distro-archive">Create distro archive</h2>
 <ol>
 <li>Copy distribution exe from exe directory into same dirctory as rootfs.tar.gz</li>
-<li>Run <code>zip distro.zip distro.exe rootfs.tar.gz</code></li>
+<li>Run <code>&quot;zip distro.zip distro.exe rootfs.tar.gz&quot;</code></li>
 </ol>
 <h2 id="install-distro">Install distro</h2>
 <ol>
 <li>Create directory for distribution</li>
 <li>Extract distro.zip into it</li>
-<li>Run distro.exe to install</li>
-<li>Run distro.exe &ndash;help to configure distribution</li>
+<li>Run <code>&quot;distro.exe&quot;</code> to install</li>
+<li>Run <code>&quot;distro.exe --help&quot;</code> to configure distribution</li>
 </ol>
 <h2 id="build-kernel">Build Kernel</h2>
 <ol>
@@ -193,8 +193,8 @@ cd rootfs <span style="color:#f92672">&amp;&amp;</span> tar czf ../rootfs.tar.gz
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>wsl2<span style="color:#f92672">]</span>
 kernel<span style="color:#f92672">=</span>C:<span style="color:#ae81ff">\\</span>Users<span style="color:#ae81ff">\\</span>jdoe<span style="color:#ae81ff">\\</span>kernel
 </code></pre></div></li>
-<li>Restart WSL using &lsquo;'%%wsl &ndash;shutdown%%&rsquo;' or restart <strong>LxssManager</strong> service</li>
-<li>Check kernel using &lsquo;'%%uname -r%%&rsquo;'</li>
+<li>Restart WSL using <code>&quot;wsl --shutdown&quot;</code> or restart <strong>LxssManager</strong> service</li>
+<li>Check kernel using <code>&quot;uname -r&quot;</code></li>
 </ol>
 <h2 id="genie-systemd">genie-systemd</h2>
 <h4 id="debianubuntu">Debian/Ubuntu</h4>
