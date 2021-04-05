@@ -189,7 +189,7 @@ cd rootfs <span style="color:#f92672">&amp;&amp;</span> tar czf ../rootfs.tar.gz
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">make KCONFIG_CONFIG<span style="color:#f92672">=</span>Microsoft/config-wsl
 </code></pre></div></li>
 <li>Copy built kernel in <strong>arch/x86/boot/bzImage</strong> to Windows folder, i.e.: <strong>/mnt/c/Users/jdoe/kernel</strong></li>
-<li>Add line below to <strong>C:\Users\jdoe.wslconfig</strong> under <strong>[wsl2]</strong> section
+<li>Add line below to <strong>C:\Users\jdoe\.wslconfig</strong> under <strong>[wsl2]</strong> section
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>wsl2<span style="color:#f92672">]</span>
 kernel<span style="color:#f92672">=</span>C:<span style="color:#ae81ff">\\</span>Users<span style="color:#ae81ff">\\</span>jdoe<span style="color:#ae81ff">\\</span>kernel
 </code></pre></div></li>
