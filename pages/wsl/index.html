@@ -233,13 +233,16 @@ yay -S genie-systemd
 <span style="color:#75715e"># Shortcut</span>
 mintty.exe --WSL<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Arch&#34;</span> --configdir<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;C:\Users\jdoe\AppData\Roaming\wsltty&#34;</span> -~ genie -s
 </code></pre></div><h2 id="nat-fix">NAT fix</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">  <span style="color:#75715e"># Required for Debian</span>
-  sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
-  sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># Required for Debian</span>
+sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
+sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
 </code></pre></div><h2 id="cgroup-fix">cgroup fix</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">  <span style="color:#75715e"># Required for Debian and Ubuntu</span>
-  sudo mkdir /sys/fs/cgroup/systemd
-  sudo mount -t cgroup -o none,name<span style="color:#f92672">=</span>systemd cgroup /sys/fs/cgroup/systemd
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># Required for Debian and Ubuntu</span>
+sudo mkdir /sys/fs/cgroup/systemd
+sudo mount -t cgroup -o none,name<span style="color:#f92672">=</span>systemd cgroup /sys/fs/cgroup/systemd
+</code></pre></div><h2 id="kali-shell-fix">Kali shell fix</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">vim /usr/lib/win-kex/xstartup
+  export SHELL<span style="color:#f92672">=</span>/bin/zsh
 </code></pre></div><h2 id="references">References</h2>
 <ul>
 <li><a href="https://gitlab.com/trankchung/wsl.git">https://gitlab.com/trankchung/wsl.git</a></li>
