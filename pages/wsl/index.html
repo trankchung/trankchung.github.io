@@ -236,9 +236,9 @@ mintty.exe --WSL<span style="color:#f92672">=</span><span style="color:#e6db74">
 <h3 id="simple">Simple</h3>
 <ul>
 <li>Create/edit <code>/etc/wsl.conf</code> with the following lines
-<pre><code>[network]
-generateResolvConf = false
-</code></pre></li>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>network<span style="color:#f92672">]</span>
+generateResolvConf <span style="color:#f92672">=</span> false
+</code></pre></div></li>
 <li>Remove <code>/etc/resolv.conf</code> if it&rsquo;s a symlink</li>
 <li>Create/edit <code>/etc/resolv.conf</code> with lines below
 <pre><code>search boardbooks.com bb2qa.local npres.local res.local
@@ -251,38 +251,38 @@ nameserver 10.82.78.121
 <ul>
 <li>Install dnsmasq using apt, yum, or pacman</li>
 <li>Create/edit <code>/etc/dnsmasq.conf</code>
-<pre><code>listen-address=0.0.0.0,127.0.0.1
-server=/res/res.local/uathost.prd/boardbooks.com/bb2qa.local/10.82.78.120
-server=/res/res.local/uathost.prd/boardbooks.com/bb2qa.local/10.82.78.121
-server=/npres/npres.local/diligentdatasystems.com/10.73.24.117
-server=/npres/npres.local/diligentdatasystems.com/10.73.24.118
-server=8.8.8.8
-server=8.8.4.4
-</code></pre></li>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">listen-address<span style="color:#f92672">=</span>0.0.0.0,127.0.0.1
+server<span style="color:#f92672">=</span>/res/res.local/uathost.prd/boardbooks.com/bb2qa.local/10.82.78.120
+server<span style="color:#f92672">=</span>/res/res.local/uathost.prd/boardbooks.com/bb2qa.local/10.82.78.121
+server<span style="color:#f92672">=</span>/npres/npres.local/diligentdatasystems.com/10.73.24.117
+server<span style="color:#f92672">=</span>/npres/npres.local/diligentdatasystems.com/10.73.24.118
+server<span style="color:#f92672">=</span>8.8.8.8
+server<span style="color:#f92672">=</span>8.8.4.4
+</code></pre></div></li>
 <li>Start dnsmasq service using <code>sudo service dnsmasq start</code>
 <ul>
 <li>This service needs to start every time WSL is started up. Put the command into <code>~/.bashrc</code> file
-<pre><code>dnsmasq_running=$(netstat -an|awk '{print $4}'|grep :53)
-if [[ -z &quot;$dnsmasq_running&quot; ]]; then
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">dnsmasq_running<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>netstat -an|awk <span style="color:#e6db74">&#39;{print $4}&#39;</span>|grep :53<span style="color:#66d9ef">)</span>
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> -z <span style="color:#e6db74">&#34;</span>$dnsmasq_running<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
   sudo service dnsmasq restart
-fi
-</code></pre></li>
+<span style="color:#66d9ef">fi</span>
+</code></pre></div></li>
 <li>Systemd won&rsquo;t work in WSL due to it not running as process 1. Refer to <strong>genie-systemd</strong> section
 above to make that happen.</li>
 </ul>
 </li>
 <li>Remove <code>/etc/resolv.conf</code> if it&rsquo;s a symlink</li>
 <li>Create/edit <code>/etc/resolv.conf</code> with lines below
-<pre><code>search boardbooks.com bb2qa.local npres.local res.local
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">search boardbooks.com bb2qa.local npres.local res.local
 nameserver 127.0.0.1
-</code></pre></li>
+</code></pre></div></li>
 <li>Restart WSL with <code>wsl --shutdown</code> in CMD</li>
 </ul>
 <h2 id="vpn-fix">VPN Fix</h2>
 <p>Add lines below into a ps1 file and run as admin after starting WSL</p>
-<pre><code>Get-NetIPInterface -InterfaceAlias &quot;vEthernet (WSL)&quot; | Set-NetIPInterface -InterfaceMetric 1
-Get-NetIPInterface -InterfaceAlias &quot;Cisco AnyConnect&quot; | Set-NetIPInterface -InterfaceMetric 6000
-</code></pre><h2 id="nat-fix">NAT fix</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">Get-NetIPInterface -InterfaceAlias <span style="color:#e6db74">&#34;vEthernet (WSL)&#34;</span> | Set-NetIPInterface -InterfaceMetric <span style="color:#ae81ff">1</span>
+Get-NetIPInterface -InterfaceAlias <span style="color:#e6db74">&#34;Cisco AnyConnect&#34;</span> | Set-NetIPInterface -InterfaceMetric <span style="color:#ae81ff">6000</span>
+</code></pre></div><h2 id="nat-fix">NAT fix</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># Required for Debian</span>
 sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
 sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
