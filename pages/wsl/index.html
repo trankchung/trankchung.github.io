@@ -238,7 +238,12 @@ sudo yum -y install genie-1.42-1.fc33.x86_64.rpm
 
 <span style="color:#75715e"># Shortcut</span>
 mintty.exe --WSL<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;CentOS8&#34;</span> --configdir<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;C:\Users\jdoe\AppData\Roaming\wsltty&#34;</span> -~ genie -s
-</code></pre></div><h2 id="dns-resolution">DNS Resolution</h2>
+</code></pre></div><h3 id="waiting-for-systemd-hang-fix">&ldquo;Waiting for systemd&rdquo; hang fix</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo systemctl disable auditd
+sudo mv /usr/lib/systemd/system/systemd-modules-load.service /usr/lib/systemd/system/systemd-modules-load.bak
+sudo mv /usr/lib/systemd/system/systemd-remount-fs.service /usr/lib/systemd/system/systemd-remount-fs.bak
+</code></pre></div><p>Restart WSL with <code>wsl --shutdown</code></p>
+<h2 id="dns-resolution">DNS Resolution</h2>
 <h3 id="simple">Simple</h3>
 <ul>
 <li>Create/edit <code>/etc/wsl.conf</code> with the following lines
