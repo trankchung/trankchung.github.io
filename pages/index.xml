@@ -177,7 +177,7 @@ Installation Prerequisites sudo apt-get install build-essential php7.0 php7.0-de
       <pubDate>Sun, 04 Apr 2021 15:52:28 -0400</pubDate>
       
       <guid>https://www.tran-scending.net/pages/wsl/</guid>
-      <description>Installation dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart # OR Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux Disable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform Create rootfs from Docker image sudo su - mkdir rootfs &amp;amp;&amp;amp; docker export $(docker create archlinux) | tar -C rootfs -xf - cd rootfs &amp;amp;&amp;amp; tar czf .</description>
+      <description>Installation dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart # OR Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux Disable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform Download a distribution  Official Community  Build a distribution Create rootfs from Docker image sudo su - mkdir rootfs &amp;amp;&amp;amp; docker export $(docker create archlinux) | tar -C rootfs -xf - cd rootfs &amp;amp;&amp;amp; tar czf .</description>
     </item>
     
     <item>

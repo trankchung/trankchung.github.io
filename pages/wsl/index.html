@@ -51,7 +51,7 @@
     
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Wsl"/>
-<meta name="twitter:description" content="Installation dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart # OR Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux Disable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform Create rootfs from Docker image sudo su - mkdir rootfs &amp;&amp; docker export $(docker create archlinux) | tar -C rootfs -xf - cd rootfs &amp;&amp; tar czf ."/>
+<meta name="twitter:description" content="Installation dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart # OR Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux Disable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform Download a distribution  Official Community  Build a distribution Create rootfs from Docker image sudo su - mkdir rootfs &amp;&amp; docker export $(docker create archlinux) | tar -C rootfs -xf - cd rootfs &amp;&amp; tar czf ."/>
 
 </head>
 <body><div class="sidebar animated fadeInDown ">
@@ -159,27 +159,33 @@ Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform
 
 Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 Disable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform
-</code></pre></div><h2 id="create-rootfs-from-docker-image">Create rootfs from Docker image</h2>
+</code></pre></div><h2 id="download-a-distribution">Download a distribution</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/windows/wsl/install-manual">Official</a></li>
+<li><a href="https://github.com/sirredbeard/Awesome-WSL#unofficial-distributions">Community</a></li>
+</ul>
+<h2 id="build-a-distribution">Build a distribution</h2>
+<h3 id="create-rootfs-from-docker-image">Create rootfs from Docker image</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su -
 mkdir rootfs <span style="color:#f92672">&amp;&amp;</span> docker export <span style="color:#66d9ef">$(</span>docker create archlinux<span style="color:#66d9ef">)</span> | tar -C rootfs -xf -
 cd rootfs <span style="color:#f92672">&amp;&amp;</span> tar czf ../rootfs.tar.gz --hard-dereference * <span style="color:#f92672">&amp;&amp;</span> cd ..
-</code></pre></div><h2 id="create-rootfs-from-iso">Create rootfs from ISO</h2>
+</code></pre></div><h3 id="create-rootfs-from-iso">Create rootfs from ISO</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su -
 unsquash -d rootfs /path/to/distro.sfs to extract file system
 cd rootfs <span style="color:#f92672">&amp;&amp;</span> tar czf ../rootfs.tar.gz --hard-dereference * <span style="color:#f92672">&amp;&amp;</span> cd ..
-</code></pre></div><h2 id="create-distro-archive">Create distro archive</h2>
+</code></pre></div><h3 id="create-distro-archive">Create distro archive</h3>
 <ol>
 <li>Copy distribution exe from exe directory into same dirctory as rootfs.tar.gz</li>
 <li>Run <code>&quot;zip distro.zip distro.exe rootfs.tar.gz&quot;</code></li>
 </ol>
-<h2 id="install-distro">Install distro</h2>
+<h3 id="install-distro">Install distro</h3>
 <ol>
 <li>Create directory for distribution</li>
 <li>Extract distro.zip into it</li>
 <li>Run <code>&quot;distro.exe&quot;</code> to install</li>
 <li>Run <code>&quot;distro.exe --help&quot;</code> to configure distribution</li>
 </ol>
-<h2 id="build-kernel">Build Kernel</h2>
+<h2 id="build-kernel">Build kernel</h2>
 <ol>
 <li>Install required packages
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt install g++ make flex bison libssl-dev libelf-dev bc
