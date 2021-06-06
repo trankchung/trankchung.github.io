@@ -223,7 +223,7 @@ Zones firewall-cmd --get-zones # list zones firewall-cmd --list-all --zone=exter
       <pubDate>Sun, 04 Apr 2021 15:46:00 -0400</pubDate>
       
       <guid>https://www.tran-scending.net/wiki/</guid>
-      <description> Apache Archlinux Docker firewalld fpm grub Kubeadm Kubernetes LetsEncrypt LVM Misc MySQL nginx OpenSSL PhpBrew Samba SSH tcpdump tools vagrant vault vim VirtualBox WSL  </description>
+      <description> Apache Docker firewalld fpm grub Kubeadm Kubernetes LetsEncrypt LVM Misc MySQL nginx OpenSSL PhpBrew Samba SSH tcpdump tools vagrant vault vim VirtualBox WSL  </description>
     </item>
     
     <item>
