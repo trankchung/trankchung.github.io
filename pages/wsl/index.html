@@ -198,49 +198,57 @@ kernel<span style="color:#f92672">=</span>C:<span style="color:#ae81ff">\\</span
 </ol>
 <h2 id="genie-systemd">genie-systemd</h2>
 <h3 id="arch">Arch</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># Manual (latest version)</span>
-sudo pacman -S dotnet-sdk systemd
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># As root</span>
+pacman-key --init
+pacman-key --populate archlinux
+pacman-key --refresh-keys
+pacman -Syu
+pacman -S --noconfirm base-devel curl git go vi vim wget
+user<span style="color:#f92672">=</span>ctran
+useradd -d /home/$user $user
+mkdir /home/$user
+chown $user:$user /home/$user
+passwd $user
+su - $user
+
+<span style="color:#75715e"># As user with sudo</span>
 git clone https://aur.archlinux.org/yay.git
 cd yay <span style="color:#f92672">&amp;&amp;</span> makepkg -si
-wget https://github.com/arkane-systems/genie/archive/1.24.tar.gz
-tar xf 1.24.tar.gz <span style="color:#f92672">&amp;&amp;</span> cd genie-1.24
-make <span style="color:#f92672">&amp;&amp;</span> sudo make install
-yay -S daemonize
-sudo vim /usr/local/lib/genie/deviated-preverts.conf
-  <span style="color:#f92672">{</span> <span style="color:#e6db74">&#34;systemd&#34;</span>: <span style="color:#e6db74">&#34;/usr/lib/systemd/systemd&#34;</span> <span style="color:#f92672">}</span>
-
-<span style="color:#75715e"># Automatic (Older AUR version)</span>
-yay -S genie-systemd
+yay -S --noconfirm daemonize
+wget https://github.com/arkane-systems/genie/releases/download/v1.42/genie-systemd-1.42-1-x86_64.pkg.tar.zst
+sudo pacman -U --noconfirm ./genie-systemd-1.42-1-x86_64.pkg.tar.zst
 
 <span style="color:#75715e"># Shortcut</span>
 mintty.exe --WSL<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Arch&#34;</span> --configdir<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;C:\Users\jdoe\AppData\Roaming\wsltty&#34;</span> -~ genie -s
 </code></pre></div><h3 id="centos-8">CentOS 8</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">wget https://github.com/arkane-systems/genie/releases/download/v1.42/genie-1.42-1.fc33.x86_64.rpm
-sudo yum -y install genie-1.42-1.fc33.x86_64.rpm
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">yum install -y curl git vi vim wget
+wget https://github.com/arkane-systems/genie/releases/download/v1.42/genie-1.42-1.fc33.x86_64.rpm
+yum -y install ./genie-1.42-1.fc33.x86_64.rpm
 
 <span style="color:#75715e"># Shortcut</span>
 mintty.exe --WSL<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;CentOS8&#34;</span> --configdir<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;C:\Users\jdoe\AppData\Roaming\wsltty&#34;</span> -~ genie -s
 </code></pre></div><h3 id="ubuntudebian">Ubuntu/Debian</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
-sudo apt install -y ./packages-microsoft-prod.deb
-sudo apt update <span style="color:#f92672">&amp;&amp;</span> sudo apt install -y dotnet-runtime-5.0
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">apt install -y curl git vi vim wget
+wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
+apt install -y ./packages-microsoft-prod.deb
+apt update <span style="color:#f92672">&amp;&amp;</span> apt install -y dotnet-runtime-5.0
 wget https://github.com/arkane-systems/genie/releases/download/v1.42/systemd-genie_1.42_amd64.deb
-sudo apt install -y ./systemd-genie_1.42_amd64.deb
+apt install -y ./systemd-genie_1.42_amd64.deb
 
 <span style="color:#75715e"># wsltty shortcut</span>
 mintty.exe --WSL<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Ubuntu-20.04&#34;</span> --configdir<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;C:\Users\jdoe\AppData\Roaming\wsltty&#34;</span> -~ genie -c zsh
 </code></pre></div><h3 id="waiting-for-systemd-hang-fix">&ldquo;Waiting for systemd&rdquo; hang fix</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># Ubuntu</span>
-sudo mv /usr/lib/systemd/system/systemd-remount-fs.service /usr/lib/systemd/system/systemd-remount-fs.bak
-sudo sudo systemctl disable multipathd.socket
+mv /usr/lib/systemd/system/systemd-remount-fs.service /usr/lib/systemd/system/systemd-remount-fs.bak
+systemctl disable multipathd.socket
 
 <span style="color:#75715e"># CentOS 8</span>
-sudo mv /usr/lib/systemd/system/systemd-remount-fs.service /usr/lib/systemd/system/systemd-remount-fs.bak
-sudo mv /usr/lib/systemd/system/systemd-modules-load.service /usr/lib/systemd/system/systemd-modules-load.bak
-sudo sudo systemctl disable auditd
+mv /usr/lib/systemd/system/systemd-remount-fs.service /usr/lib/systemd/system/systemd-remount-fs.bak
+mv /usr/lib/systemd/system/systemd-modules-load.service /usr/lib/systemd/system/systemd-modules-load.bak
+systemctl disable auditd
 
 <span style="color:#75715e"># Use command below to list failed service and disable/remove them</span>
-sudo systemctl list-units --failed
+systemctl list-units --failed
 </code></pre></div><p>Restart WSL with <code>wsl --shutdown</code></p>
 <h2 id="dns-resolution">DNS Resolution</h2>
 <h3 id="simple">Simple</h3>

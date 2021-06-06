@@ -190,15 +190,6 @@ Installation Prerequisites sudo apt-get install build-essential php7.0 php7.0-de
     </item>
     
     <item>
-      <title>Archlinux</title>
-      <link>https://www.tran-scending.net/pages/archlinux/</link>
-      <pubDate>Sun, 04 Apr 2021 15:52:27 -0400</pubDate>
-      
-      <guid>https://www.tran-scending.net/pages/archlinux/</guid>
-      <description>Refresh keys sudo pacman-key --init sudo pacman-key --populate archlinux sudo pacman-key --refresh-keys fakeroot-tcp pacman -S base-devel pacman -R fakeroot sudo pacman -U https://github.</description>
-    </item>
-    
-    <item>
       <title>Docker</title>
       <link>https://www.tran-scending.net/pages/docker/</link>
       <pubDate>Sun, 04 Apr 2021 15:52:27 -0400</pubDate>
