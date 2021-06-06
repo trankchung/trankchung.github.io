@@ -197,25 +197,7 @@ kernel<span style="color:#f92672">=</span>C:<span style="color:#ae81ff">\\</span
 <li>Check kernel using <code>&quot;uname -r&quot;</code></li>
 </ol>
 <h2 id="genie-systemd">genie-systemd</h2>
-<h4 id="debianubuntu">Debian/Ubuntu</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># Debian</span>
-wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-
-<span style="color:#75715e"># Ubuntu 18.04</span>
-wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-
-<span style="color:#75715e"># Ubuntu 20.04</span>
-wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-
-sudo dpkg -i packages-microsoft-prod.deb
-curl -s https://packagecloud.io/install/repositories/arkane-systems/wsl-translinux/script.deb.sh | sudo bash
-sudo apt-get update
-sudo apt-get install dotnet-runtime-5.0
-sudo apt install systemd-genie
-
-<span style="color:#75715e"># wsltty shortcut</span>
-mintty.exe --WSL<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Ubuntu-20.04&#34;</span> --configdir<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;C:\Users\jdoe\AppData\Roaming\wsltty&#34;</span> -~ genie -c zsh
-</code></pre></div><h4 id="arch">Arch</h4>
+<h3 id="arch">Arch</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># Manual (latest version)</span>
 sudo pacman -S dotnet-sdk systemd
 git clone https://aur.archlinux.org/yay.git
@@ -238,10 +220,27 @@ sudo yum -y install genie-1.42-1.fc33.x86_64.rpm
 
 <span style="color:#75715e"># Shortcut</span>
 mintty.exe --WSL<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;CentOS8&#34;</span> --configdir<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;C:\Users\jdoe\AppData\Roaming\wsltty&#34;</span> -~ genie -s
+</code></pre></div><h3 id="ubuntudebian">Ubuntu/Debian</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
+sudo apt install -y ./packages-microsoft-prod.deb
+sudo apt update <span style="color:#f92672">&amp;&amp;</span> sudo apt install -y dotnet-runtime-5.0
+wget https://github.com/arkane-systems/genie/releases/download/v1.42/systemd-genie_1.42_amd64.deb
+sudo apt install -y ./systemd-genie_1.42_amd64.deb
+
+<span style="color:#75715e"># wsltty shortcut</span>
+mintty.exe --WSL<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Ubuntu-20.04&#34;</span> --configdir<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;C:\Users\jdoe\AppData\Roaming\wsltty&#34;</span> -~ genie -c zsh
 </code></pre></div><h3 id="waiting-for-systemd-hang-fix">&ldquo;Waiting for systemd&rdquo; hang fix</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo systemctl disable auditd
-sudo mv /usr/lib/systemd/system/systemd-modules-load.service /usr/lib/systemd/system/systemd-modules-load.bak
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># Ubuntu</span>
 sudo mv /usr/lib/systemd/system/systemd-remount-fs.service /usr/lib/systemd/system/systemd-remount-fs.bak
+sudo sudo systemctl disable multipathd.socket
+
+<span style="color:#75715e"># CentOS 8</span>
+sudo mv /usr/lib/systemd/system/systemd-remount-fs.service /usr/lib/systemd/system/systemd-remount-fs.bak
+sudo mv /usr/lib/systemd/system/systemd-modules-load.service /usr/lib/systemd/system/systemd-modules-load.bak
+sudo sudo systemctl disable auditd
+
+<span style="color:#75715e"># Use command below to list failed service and disable/remove them</span>
+sudo systemctl list-units --failed
 </code></pre></div><p>Restart WSL with <code>wsl --shutdown</code></p>
 <h2 id="dns-resolution">DNS Resolution</h2>
 <h3 id="simple">Simple</h3>
