@@ -173,19 +173,31 @@ cd rootfs <span style="color:#f92672">&amp;&amp;</span> tar czf ../rootfs.tar.gz
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su -
 unsquash -d rootfs /path/to/distro.sfs to extract file system
 cd rootfs <span style="color:#f92672">&amp;&amp;</span> tar czf ../rootfs.tar.gz --hard-dereference * <span style="color:#f92672">&amp;&amp;</span> cd ..
-</code></pre></div><h3 id="create-distro-archive">Create distro archive</h3>
+</code></pre></div><h3 id="install-distro">Install distro</h3>
 <ol>
-<li>Copy distribution exe from exe directory into same dirctory as rootfs.tar.gz</li>
-<li>Run <code>&quot;zip distro.zip distro.exe rootfs.tar.gz&quot;</code></li>
-</ol>
-<h3 id="install-distro">Install distro</h3>
-<ol>
-<li>Create directory for distribution</li>
-<li>Extract distro.zip into it</li>
+<li>Create distro folder</li>
+<li>Download <code>Launcher.exe</code> or <code>icons.zip</code> from <a href="https://github.com/yuk7/wsldl/releases">here</a></li>
+<li>Extract <code>rootfs.tar.gz</code> into distro folder</li>
 <li>Run <code>&quot;distro.exe&quot;</code> to install</li>
-<li>Run <code>&quot;distro.exe --help&quot;</code> to configure distribution</li>
+<li>Run <code>&quot;distro.exe --help&quot;</code> to configure distro</li>
 </ol>
-<h2 id="build-kernel">Build kernel</h2>
+<h2 id="import-a-distribution">Import a distribution</h2>
+<ol>
+<li>Find the distro of choice at <a href="https://jenkins.linuxcontainers.org/view/Images/">https://jenkins.linuxcontainers.org/view/Images/</a></li>
+<li>Download the <code>rootfs.tar.xz</code> for that distro</li>
+<li>Unpack it using tar or 7zip to get <code>rootfs.tar</code></li>
+<li>Import using <code>wsl --import &lt;distro name&gt; &lt;distro folder&gt; &lt;path to rootfs.tar&gt;</code>
+<ul>
+<li><code>import --import Debian C:\Users\jdoe\WSL\debian C:\Debian\rootfs.tar</code></li>
+</ul>
+</li>
+</ol>
+<h2 id="compacting-wsl-ext4vhdx">Compacting WSL ext4.vhdx</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">wsl --shutdown
+diskpart
+<span style="color:#66d9ef">select</span> vdisk file<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;C:\path\to\ext4.vhdx&#34;</span>
+compact vdisk
+</code></pre></div><h2 id="build-kernel">Build kernel</h2>
 <ol>
 <li>Install required packages
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt install g++ make flex bison libssl-dev libelf-dev bc
